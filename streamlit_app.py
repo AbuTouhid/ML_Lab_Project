@@ -9,7 +9,7 @@ encoder_path = os.path.join("models", "label_encoder.pkl")
 
 model = pickle.load(open(model_path, "rb"))
 scaler = pickle.load(open(scaler_path, "rb"))
-le = pickle.load(open(encoder_path, "rb")
+le = pickle.load(open(encoder_path, "rb"))
 
 st.title("🎓 Student Grade Predictor")
 
