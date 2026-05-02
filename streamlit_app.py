@@ -11,9 +11,9 @@ model = pickle.load(open(model_path, "rb"))
 scaler = pickle.load(open(scaler_path, "rb"))
 le = pickle.load(open(encoder_path, "rb"))
 # Load model + tools
-#model = pickle.load(open("models/best_model.pkl", "rb"))
-#scaler = pickle.load(open("models/scaler.pkl", "rb"))
-#le = pickle.load(open("models/label_encoder.pkl", "rb"))
+model = pickle.load(open("models/best_model.pkl", "rb"))
+scaler = pickle.load(open("models/scaler.pkl", "rb"))
+le = pickle.load(open("models/label_encoder.pkl", "rb"))
 
 st.title("🎓 Student Grade Predictor")
 
