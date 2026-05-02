@@ -1,11 +1,19 @@
 import streamlit as st
 import numpy as np
 import pickle
+import os
 
+model_path = os.path.join("models", "best_model.pkl")
+scaler_path = os.path.join("models", "scaler.pkl")
+encoder_path = os.path.join("models", "label_encoder.pkl")
+
+model = pickle.load(open(model_path, "rb"))
+scaler = pickle.load(open(scaler_path, "rb"))
+le = pickle.load(open(encoder_path, "rb"))
 # Load model + tools
-model = pickle.load(open("models/best_model.pkl", "rb"))
-scaler = pickle.load(open("models/scaler.pkl", "rb"))
-le = pickle.load(open("models/label_encoder.pkl", "rb"))
+#model = pickle.load(open("models/best_model.pkl", "rb"))
+#scaler = pickle.load(open("models/scaler.pkl", "rb"))
+#le = pickle.load(open("models/label_encoder.pkl", "rb"))
 
 st.title("🎓 Student Grade Predictor")
 
