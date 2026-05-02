@@ -1,18 +1,22 @@
 from sklearn.linear_model import LogisticRegression
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import SVC
+from sklearn.neighbors import KNeighborsClassifier
 
 def train_models(X_train, y_train):
-
+    """
+    Train multiple classification models
+    """
     models = {
-        "logistic": LogisticRegression(max_iter=1000),
-        "knn": KNeighborsClassifier(),
-        "decision_tree": DecisionTreeClassifier(),
-        "svm": SVC()
+        'Logistic Regression': LogisticRegression(max_iter=1000, random_state=42),
+        'Random Forest': RandomForestClassifier(n_estimators=100, random_state=42),
+        'SVM': SVC(kernel='rbf', random_state=42),
+        'KNN': KNeighborsClassifier(n_neighbors=5)
     }
-
-    for name in models:
-        models[name].fit(X_train, y_train)
-
-    return models
+    
+    trained_models = {}
+    for name, model in models.items():
+        model.fit(X_train, y_train)
+        trained_models[name] = model
+    
+    return trained_models
